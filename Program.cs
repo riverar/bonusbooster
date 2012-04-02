@@ -27,8 +27,16 @@ namespace BonusBooster
                             Win32.mouse_event((uint)(Win32.MouseEventFlags.LEFTDOWN | Win32.MouseEventFlags.LEFTUP),
                                 0, 0, 0, UIntPtr.Zero);
 
-                            Cursor.Position = new Point(20, 20); // Not 0,0 as Windows 8 may show a conflicting back stack item
-
+                            // HACK: The site doesn't register mouse movement that quickly, so
+                            // slowly drag the mouse off the game board.
+                            var y2 = y;
+                            while (y2 > 50)
+                            {
+                                y2 -= 50;
+                                Cursor.Position = new Point(x, y2);
+                                Thread.Sleep(100);
+                            }
+                            
                             // HACK: Get a fresh screenshot to resolve dupe hits.
                             bmp = Desktop.GetImage();
                         }
@@ -39,7 +47,7 @@ namespace BonusBooster
                 // We don't want to tax poor ol' DWM on Windows 8 here.
                 // (Besides bonuses are slow generating.)
                 //
-                Thread.Sleep(30000);
+                Thread.Sleep(10000);
             }
         }
     }
