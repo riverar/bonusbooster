@@ -38,6 +38,7 @@ namespace BonusBooster
                             }
                             
                             // HACK: Get a fresh screenshot to resolve dupe hits.
+                            bmp.Dispose();
                             bmp = Desktop.GetImage();
                         }
                     }
