@@ -43,12 +43,13 @@ namespace BonusBooster
                         }
                     }
 
+                bmp.Dispose();
 
                 //
                 // We don't want to tax poor ol' DWM on Windows 8 here.
                 // (Besides bonuses are slow generating.)
                 //
-                Thread.Sleep(10000);
+                Thread.Sleep(500);
             }
         }
     }
