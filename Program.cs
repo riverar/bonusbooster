@@ -17,10 +17,10 @@ namespace BonusBooster
                 for (int x = 0; x < bmp.Width; x++)
                     for (int y = 0; y < bmp.Height; y++)
                     {
-                        // Bonus icons have a mix of yellows, but uniquely #ffb812
+                        // Bonus icons have a mix of yellows, but uniquely #fff16a
                         var pixel = bmp.GetPixel(x, y);
 
-                        if (pixel.R == 0xFF && pixel.G == 0xB8 && pixel.B == 0x12)
+                        if (pixel.R == 0xFF && pixel.G == 0xF1 && pixel.B == 0x6A)
                         {
                             Cursor.Position = new Point(x, y);
 
